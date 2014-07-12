@@ -2,6 +2,6 @@
     "name" : "Hw2/Js/library",
     "license" : "http://www.hyperweb2.com/terms",
     "dependencies" : {
-        "Hw2/Js/init" : "hw2-core/js-init#*"
+        "%init" : "hw2-core/js-init#*"
     }
 }
