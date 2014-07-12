@@ -1,0 +1,7 @@
+{
+    "name" : "Hw2/Js/library",
+    "license" : "http://www.hyperweb2.com/terms",
+    "dependencies" : {
+        "Hw2/Js/init" : "*"
+    }
+}
