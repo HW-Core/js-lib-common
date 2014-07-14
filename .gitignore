@@ -80,6 +80,8 @@ local.properties
 
 .htaccess
 tests/
+.bower.json
+
 
 
 
