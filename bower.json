@@ -3,5 +3,11 @@
     "license" : "http://www.hyperweb2.com/terms",
     "dependencies" : {
         "%init" : "hw2-core/js-kernel#*"
-    }
+    },
+    "devDependencies" : {
+        "%tests" : "hw2-core/js-library#tests"
+    },
+    "keep" : [
+        ".git"
+    ]
 }
