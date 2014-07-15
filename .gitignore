@@ -78,6 +78,11 @@ local.properties
 # Hw2Core files
 #
 
+.htaccess
+tests/
+.bower.json
+
+
 
 
 
