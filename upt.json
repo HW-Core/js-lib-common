@@ -7,10 +7,7 @@
     "devDependencies" : {
         "%tests" : "hw2-core/js-library#tests"
     },
-    "//" : "ensure we keep the right git repository configurations when we install it manually",
-    "ignore" : [
-        ".git"
-    ],
+    "//" : "ensure we keep the right git repository configurations",
     "keep" : [
         ".git"
     ]
