@@ -8,7 +8,7 @@
         "%tests" : "hw2-core/js-library#tests"
     },
     "//" : "ensure we keep the right git repository configurations",
-    "keep" : [
-        ".git"
+    "keep": [
+        ".git/config"
     ]
 }
