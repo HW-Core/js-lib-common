@@ -7,7 +7,7 @@
     "devDependencies" : {
         "%tests" : "hw2-core/js-library#tests"
     },
-    "//" : "ensure we keep the right git repository configurations",
+    "_comment_keep": "ensure we keep the right git repository configurations",
     "keep": [
         ".git/config"
     ]
