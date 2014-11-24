@@ -9,7 +9,7 @@ define(function () {
                 /**
                  * Destroy all elements of array
                  */
-                attributes: "public static",
+                attributes: ["public","static"],
                 name: "clean",
                 val: function(arr) {
                     var what, a = arr, L = a.length, ax;
