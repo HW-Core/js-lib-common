@@ -12,7 +12,8 @@ define(function(){
             HW2PATH_JS_LIB + "common/Object.js",
             HW2PATH_JS_LIB + "common/Path.js",
             HW2PATH_JS_LIB + "common/String.js",
-            HW2PATH_JS_LIB + "common/Uri.js"
+            HW2PATH_JS_LIB + "common/Uri.js",
+            HW2PATH_JS_LIB + "common/Var.js"
         ],
         test: [
             HW2PATH_JS_LIB + "common/tests/tests/array.js",
@@ -20,7 +21,8 @@ define(function(){
             HW2PATH_JS_LIB + "common/tests/tests/object.js",
             HW2PATH_JS_LIB + "common/tests/tests/path.js",
             HW2PATH_JS_LIB + "common/tests/tests/string.js",
-            HW2PATH_JS_LIB + "common/tests/tests/uri.js"
+            HW2PATH_JS_LIB + "common/tests/tests/uri.js",
+            HW2PATH_JS_LIB + "common/tests/tests/var.js"
         ]
     };
 });
