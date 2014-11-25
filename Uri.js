@@ -6,18 +6,38 @@ define(function () {
     var $ = Hw2Core;
     return Hw2Core.Uri = $.Class({members: [
             {
+                attributes: "private",
+                name: "url",
+                val: null
+            },
+            {
+                attributes: "private",
+                name: "parsedUrl",
+                val: null
+            },
+            {
                 attributes: "public",
-                name: "_constructor",
-                val: function (string) {
+                name: "__construct",
+                val: function (url) {
                     assert(typeof url === "string", "Url must be a string!");
 
-                    this.url = url;
+                    this.__i.url = url;
 
-                    var parsedUrl = Hw2.Uri.parse_url(url);
-
-                    this.getParsedUrl = function () {
-                        return parsedUrl;
-                    };
+                    this.__i.parsedUrl = this.parseUrl(url);
+                }
+            },
+            {
+                attributes: "public",
+                name: "getFragment",
+                val: function () {
+                    return this.getParsedUrl().fragment;
+                }
+            },
+            {
+                attributes: "public",
+                name: "getParsedUrl",
+                val: function () {
+                    return this.__i.parsedUrl;
                 }
             },
             {

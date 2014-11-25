@@ -14,7 +14,7 @@ define([
             },
             {
                 attributes: "public",
-                name: "__constructor",
+                name: "__construct",
                 val: function () {
                     this.triggers = [];
                 }
@@ -49,11 +49,11 @@ define([
                 attributes: ["public","static"],
                 name: "I",
                 val: function (key) {
-                    if (typeof this.__st._instances[key] === "undefined") {
-                        this.__st._instances[key] = new Hw2Core.Event();
+                    if (typeof this.__s._instances[key] === "undefined") {
+                        this.__s._instances[key] = new Hw2Core.Event();
                     }
 
-                    return this.__st._instances[key];
+                    return this.__s._instances[key];
                 }
             }
         ]}
