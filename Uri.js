@@ -23,14 +23,14 @@ define(function () {
 
                     this._i.url = url;
 
-                    this._i.parsedUrl = this.parseUrl(url);
+                    this._i.parsedUrl = this.i.parseUrl(url);
                 }
             },
             {
                 attributes: "public",
                 name: "getFragment",
                 val: function () {
-                    return this.getParsedUrl().fragment;
+                    return this.i.getParsedUrl().fragment;
                 }
             },
             {
@@ -44,7 +44,7 @@ define(function () {
                 attributes: "public",
                 name: "getParam",
                 val: function (key) {
-                    var query = this.getParsedUrl().query;
+                    var query = this.i.getParsedUrl().query;
                     if (!query)
                         return;
 
