@@ -21,9 +21,9 @@ define(function () {
                 val: function (url) {
                     assert(typeof url === "string", "Url must be a string!");
 
-                    this.__i.url = url;
+                    this._i.url = url;
 
-                    this.__i.parsedUrl = this.parseUrl(url);
+                    this._i.parsedUrl = this.parseUrl(url);
                 }
             },
             {
@@ -37,7 +37,7 @@ define(function () {
                 attributes: "public",
                 name: "getParsedUrl",
                 val: function () {
-                    return this.__i.parsedUrl;
+                    return this._i.parsedUrl;
                 }
             },
             {

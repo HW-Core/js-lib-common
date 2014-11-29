@@ -9,7 +9,7 @@ define([
     return Hw2Core.Event = $.Class({members: [
             {
                 attributes: ["private","static"],
-                name: "_instances",
+                name: "instances",
                 val: new Array()
             },
             {
@@ -49,11 +49,11 @@ define([
                 attributes: ["public","static"],
                 name: "I",
                 val: function (key) {
-                    if (typeof this.__s._instances[key] === "undefined") {
-                        this.__s._instances[key] = new Hw2Core.Event();
+                    if (typeof this._s.instances[key] === "undefined") {
+                        this._s.instances[key] = new Hw2Core.Event();
                     }
 
-                    return this.__s._instances[key];
+                    return this._s.instances[key];
                 }
             }
         ]}
