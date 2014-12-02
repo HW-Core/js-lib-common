@@ -2,13 +2,13 @@
  * Copyright (C) 2007 - 2014 Hyperweb2 All rights reserved.
  * GNU General Public License version 3; see www.hyperweb2.com/terms/
  */
-define([
-    HW2PATH_JS_LIB + "common/Array.js"
+hw2.define([
+    "hw2!PATH_JS_LIB:common/Array.js"
 ], function () {
-    var $ = Hw2Core;
-    return Hw2Core.Event = $.Class({members: [
+    var $ = this;
+    $.Event = $.Class({members: [
             {
-                attributes: ["private","static"],
+                attributes: ["private", "static"],
                 name: "instances",
                 val: new Array()
             },
@@ -30,7 +30,7 @@ define([
                 attributes: "public",
                 name: "unbind",
                 val: function (obj) {
-                    Hw2Core.Array.remove(this.triggers, obj);
+                    $.Array.remove(this.triggers, obj);
                 }
             },
             {
@@ -46,11 +46,11 @@ define([
                 }
             },
             {
-                attributes: ["public","static"],
+                attributes: ["public", "static"],
                 name: "I",
                 val: function (key) {
                     if (typeof this._s.instances[key] === "undefined") {
-                        this._s.instances[key] = new Hw2Core.Event();
+                        this._s.instances[key] = new $.Event();
                     }
 
                     return this._s.instances[key];

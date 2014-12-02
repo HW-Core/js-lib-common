@@ -2,9 +2,12 @@
  * Copyright (C) 2007 - 2014 Hyperweb2 All rights reserved.
  * GNU General Public License version 3; see www.hyperweb2.com/terms/
  */
-define(function () {
-    var $ = Hw2Core;
-    return Hw2Core.Uri = $.Class({members: [
+
+'use strict';
+
+hw2.define(function () {
+    var $ = this;
+    $.Uri = $.Class({members: [
             {
                 attributes: "private",
                 name: "url",
@@ -19,7 +22,8 @@ define(function () {
                 attributes: "public",
                 name: "__construct",
                 val: function (url) {
-                    assert(typeof url === "string", "Url must be a string!");
+                    if (typeof url !== "string")
+                        throw new Error("Url must be a string!");
 
                     this._i.url = url;
 

@@ -2,16 +2,19 @@
  * Copyright (C) 2007 - 2014 Hyperweb2 All rights reserved.
  * GNU General Public License version 3; see www.hyperweb2.com/terms/
  */
-define(function () {
-    var $ = Hw2Core;
-    return $.Array = $.Class({members: [
+
+'use strict';
+
+hw2.define(function () {
+    var $ = this;
+    $.Array = $.Class({members: [
             {
                 /**
                  * Destroy all elements of array
                  */
-                attributes: ["public","static"],
+                attributes: ["public", "static"],
                 name: "clean",
-                val: function(arr) {
+                val: function (arr) {
                     var what, a = arr, L = a.length, ax;
                     while (L && arr.length) {
                         what = a[--L];
