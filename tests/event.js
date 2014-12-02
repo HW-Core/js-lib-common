@@ -3,16 +3,21 @@
  * GNU General Public License version 3; see www.hyperweb2.com/terms/
  */
 
-describe('Event', function () {
-    describe('get static instance', function () {
-        it('instance created', function () {
-            Hw2Core.Event.__("__id");
-            var e=Hw2Core.Event.I("test");
-            assert.typeOf(e,"object");
+hw2.define(function () {
+    $ = this;
+
+    describe('Event', function () {
+        describe('get static instance', function () {
+            it('instance created', function () {
+                $.Event.__("__id");
+                var e = $.Event.I("test");
+                assert.typeOf(e, "object");
+            });
         });
+
+        /**
+         * TODO: add more tests
+         */
     });
-    
-    /**
-     * TODO: add more tests
-     */
+
 });

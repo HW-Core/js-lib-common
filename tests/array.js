@@ -3,12 +3,17 @@
  * GNU General Public License version 3; see www.hyperweb2.com/terms/
  */
 
-describe('Array', function () {
-    describe('destroy', function () {
-        it('all elements destroyed', function () {
-            var a = [1,3,5,2,7];
-            a=Hw2Core.Array.clean(a);
-            assert.ok(a.length === 0, "array cleaned");
+hw2.define(function () {
+    var $ = this;
+
+    describe('Array', function () {
+        describe('destroy', function () {
+            it('all elements destroyed', function () {
+                var a = [1, 3, 5, 2, 7];
+                a = $.Array.clean(a);
+                assert.ok(a.length === 0, "array cleaned");
+            });
         });
     });
+
 });

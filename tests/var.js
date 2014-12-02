@@ -3,22 +3,34 @@
  * GNU General Public License version 3; see www.hyperweb2.com/terms/
  */
 
-describe('Var', function () {
-    var $=Hw2Core;
-    describe('isset', function () {
-        it('check if a variable is set', function () {
-            var a;
+hw2.define(function () {
+    var $ = this;
 
-            a = {
-                b: {
-                    c: 'e'
-                }
-            };
+    describe('Var', function () {
+        describe('isset', function () {
+            it('check if a variable is set', function () {
+                var a;
 
-            assert.ok($.Var.isset(function() { return a; })==true,"a");
-            assert.ok($.Var.isset(function() { return a.b.c; })==true,"a.b.c");
-            assert.ok($.Var.isset(function() { return a.b.c.d; })==false,"a.b.c.d");
-            assert.ok($.Var.isset(function() { return a.b.c.d.e; })==false,"a.b.c.d.e");
+                a = {
+                    b: {
+                        c: 'e'
+                    }
+                };
+
+                assert.ok($.Var.isset(function () {
+                    return a;
+                }) === true, "a");
+                assert.ok($.Var.isset(function () {
+                    return a.b.c;
+                }) === true, "a.b.c");
+                assert.ok($.Var.isset(function () {
+                    return a.b.c.d;
+                }) === false, "a.b.c.d");
+                assert.ok($.Var.isset(function () {
+                    return a.b.c.d.e;
+                }) === false, "a.b.c.d.e");
+            });
         });
     });
+
 });
