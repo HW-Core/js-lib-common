@@ -1,0 +1,12 @@
+{
+    "name" : "hw2/modules/js/src/library/common/doc",
+    "license" : "http://www.hyperweb2.com/terms",
+    "dependencies": {
+        "%parent-lib": "hw2-core/js-library-common#*"
+    },
+    "_comment_keep" : "ensure we keep the right git repository configurations",
+    "keep": [
+        ".git/config"
+    ],
+    "sandbox" : true
+}
