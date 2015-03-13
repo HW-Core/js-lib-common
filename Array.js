@@ -1,22 +1,15 @@
-/*
- * Copyright (C) 2007 - 2014 Hyperweb2 All rights reserved.
- * GNU General Public License version 3; see www.hyperweb2.com/terms/
- */
-
 'use strict';
 
 hw2.define([
     'hw2!PATH_JS_LIB:common/include.js'
-],function () {
+], function () {
     var $ = this;
-    $.Array = $.Class({members: [
+    return $.Array = $.Class({members: [
             {
                 /**
                  * Destroy all elements of array
                  */
-                attributes: ["public", "static"],
-                name: "clean",
-                val: function (arr) {
+                a: ["public", "static"], n: "clean", v: function (arr) {
                     var what, a = arr, L = a.length, ax;
                     while (L && arr.length) {
                         what = a[--L];
@@ -26,7 +19,38 @@ hw2.define([
                     }
                     return arr;
                 }
+            },
+            {
+                /**
+                 * A-B ( subtraction between sets )
+                 * [TODO] performance improvement
+                 */
+                a: ["public", "static"], n: "diff", v: function (a, b) {
+                    return a.filter(function (i) {
+                        return b.indexOf(i) < 0;
+                    });
+                }
+            },
+            {
+                /**
+                 * A ∩ B ( intersection between sets )
+                 */
+                a: ["public", "static"], n: "intersect", v: function (a, b) {
+                    var ret = [];
+                    for (var i = 0; i < a.length; i++) {
+                        for (var j = 0; j < b.length; j++) {
+                            if (a[i] === b[j]) {
+                                ret.push(a[i]);
+                                break;
+                            }
+                        }
+                    }
+
+                    return ret;
+                }
             }
+
+
         ]}
     );
 });
