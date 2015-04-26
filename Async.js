@@ -1,16 +1,22 @@
 'use strict';
 
 hw2.define([
-    'hw2!PATH_JS_LIB:common/include.js'
+    'hw2!{PATH_JS_LIB}common/include.js'
 ], function () {
     var $ = this;
+
+
+    /**
+     * "duck punching" RSVP
+     * 
+     */
 
     /*
      * when calling .then() function from cb*() methods
      * latest argument is be te callback result
      * if not callback defined it's null
      */
-    $.Q.defer.prototype.cbResolve = function () {
+    $.RSVP.defer.prototype.cbResolve = function () {
         if (this.promise === null && this._callback) {
             return this._callback.apply(null, arguments);
         } else {
@@ -18,7 +24,7 @@ hw2.define([
         }
     };
 
-    $.Q.defer.prototype.cbReject = function () {
+    $.RSVP.defer.prototype.cbReject = function () {
         if (this.promise === null && this._callback) {
             return this._callback.apply(null, arguments);
         } else {
@@ -26,6 +32,23 @@ hw2.define([
         }
     };
 
+    var tmp = $.Promise.prototype["catch"];
+    $.Promise.prototype["catch"] = function (err, label) {
+        // add marker to notify that exception has been caught
+        this._label = "__caught__" + (this._label || "");
+        return tmp.call(this, err, label);
+    };
+    // compatible alias for catch
+    $.Promise.prototype.fail = $.Promise.prototype["catch"];
+
+    $.RSVP.configure('instrument', true);
+    $.RSVP.configure('instrument-with-stack', true);
+    $.RSVP.on('rejected', function (e) {
+        // print error only when exception has not been caught using promise methods
+        if (!e.label || !e.label.indexOf("__caught__") === 0) {
+            console.log("Uncaught exception", e, e.detail.stack);
+        }
+    });
 
     /*
      * Adapter class for some Q methods
@@ -33,7 +56,7 @@ hw2.define([
     return $.Async = $.Class({members: [
             {
                 a: ["public", "static"], n: "all", v: function (promises) {
-                    return $.Q.all(promises);
+                    return $.Promise.all(promises);
                 }
             },
             {
@@ -41,25 +64,35 @@ hw2.define([
                  * array of promising-function that should be called sequentially 
                  */
                 a: ["public", "static"], n: "sequence", v: function (fnArray) {
-                    return fnArray.slice(1).reduce($.Q.when, $.Q(fnArray[0]));
+                    return fnArray.slice(1).reduce(function (prev, curr) {
+                        return prev.then(curr);
+                    }, fnArray[0]());
                 }
             },
+            /*{
+             a: ["public", "static"], n: "call", v: function (fn) {
+             return this.s.apply(fn, Array.prototype.slice.call(arguments, 1));
+             }
+             },
+             {
+             a: ["public", "static"], n: "apply", v: function (fn, args) {
+             return $.Q.nfapply(fn, args);
+             }
+             },*/
             {
-                a: ["public", "static"], n: "call", v: function (fn) {
-                    return this.s.apply(fn, Array.prototype.slice.call(arguments, 1));
-                }
-            },
-            {
-                a: ["public", "static"], n: "apply", v: function (fn, args) {
-                    return $.Q.nfapply(fn, args);
+                /**
+                 * fn: accepts resolve and reject methods as parameter
+                 */
+                a: ["public", "static"], n: "promise", v: function (fn) {
+                    return new $.Promise(fn);
                 }
             },
             {
                 /**
-                 * if callback is not defined then promise will not be set 
+                 * if callback is defined then promise will not be set 
                  */
                 a: ["public", "static"], n: "defer", v: function (callback) {
-                    var deferred = $.Q.defer();
+                    var deferred = $.RSVP.defer();
                     if (callback) {
                         if (typeof callback !== "function")
                             throw new Error("callback type is: " + typeof (callback));
