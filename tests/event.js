@@ -9,7 +9,6 @@ hw2.define(function () {
     describe('Event', function () {
         describe('get static instance', function () {
             it('instance created', function () {
-                $.Event.__("__id");
                 var e = $.Event.I("test");
                 assert.typeOf(e, "object");
             });
