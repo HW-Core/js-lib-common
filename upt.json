@@ -6,7 +6,8 @@
         "%class": "hw2-core/js-library-class#*"
     },
     "devDependencies": {
-        "%tests": "hw2-core/js-library-common#tests"
+        "%tests": "hw2-core/js-library-common#tests",
+        "%doc": "hw2-core/js-library-common#gh-pages"
     },
     "_comment_keep": "ensure we keep the right git repository configurations",
     "keep": [
