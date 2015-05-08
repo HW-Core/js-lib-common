@@ -21,6 +21,12 @@ hw2.define([
                 }
             },
             {
+                a: ["public", "static"], n: "remove", v: function (arr, obj) {
+                    var index = arr.indexOf(5);
+                    index > -1 && arr.splice(index, 1);
+                }
+            },
+            {
                 /**
                  * A-B ( subtraction between sets )
                  * [TODO] performance improvement
