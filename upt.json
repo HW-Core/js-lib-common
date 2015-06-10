@@ -1,13 +1,13 @@
 {
-    "name": "hw2/modules/js/src/library/common",
+    "name": "hwcore/modulesjs/src/library/common",
     "license": "http://www.hyperweb2.com/terms",
     "dependencies": {
-        "%init": "hw2-core/js-kernel#*",
-        "%class": "hw2-core/js-library-class#*"
+        "%init": "hw-core/js-kernel#*",
+        "%class": "hw-core/js-library-class#*"
     },
     "devDependencies": {
-        "%tests": "hw2-core/js-library-common#tests",
-        "%doc": "hw2-core/js-library-common#gh-pages"
+        "%tests": "hw-core/js-library-common#tests",
+        "%doc": "hw-core/js-library-common#gh-pages"
     },
     "_comment_keep": "ensure we keep the right git repository configurations",
     "keep": [

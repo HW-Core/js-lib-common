@@ -1,7 +1,7 @@
 'use strict';
 
-hw2.define([
-    'hw2!{PATH_JS_LIB}common/include.js'
+hwc.define([
+    'hwc!{PATH_JS_LIB}common/include.js'
 ], function () {
     var $ = this;
 
@@ -46,7 +46,7 @@ hw2.define([
     $.RSVP.on('rejected', function (e) {
         // print error only when exception has not been caught using promise methods
         if (!e.label || !e.label.indexOf("__caught__") === 0) {
-            console.log("Uncaught exception", e, e.detail.stack);
+            console.error("Uncaught exception", e, e.detail.stack);
         }
     });
 
