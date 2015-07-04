@@ -4,7 +4,7 @@
  */
 
 hwc.define(function () {
-    $ = this;
+    var $ = this;
 
     describe('Event', function () {
         describe('get static instance', function () {
